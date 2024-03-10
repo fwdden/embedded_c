@@ -1,4 +1,4 @@
-TARGET = Sensor_1
+TARGET = sensor_app
 CC = gcc
 
 SRC = $(wildcard *.c)
