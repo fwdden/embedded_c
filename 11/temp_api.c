@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "temp_api.h"
 
-void changeIJ(struct sensor* info, int i, int j)
+void changeIJ(struct sensor *info, int i, int j)
 {
     struct sensor temp;
     temp = info[i];
@@ -9,7 +9,7 @@ void changeIJ(struct sensor* info, int i, int j)
     info[j] = temp;
 }
 
-void SortByt(struct sensor* info, int n)
+void SortByt(struct sensor *info, int n)
 {
     for(int i = 0; i<n; ++i)
         for(int j = i; j<n; ++j)
@@ -17,13 +17,13 @@ void SortByt(struct sensor* info, int n)
                 changeIJ(info, i, j);
 }
 
-unsigned long long DateToInt(struct sensor*info)
+unsigned long long DateToInt(struct sensor *info)
 {
     return info->year << 28 | info->month <<24 |
     info-> day << 16 | info-> hours << 8 | info-> minutes;
 }
 
-void SortByDate(struct sensor* info, int n)
+void SortByDate(struct sensor *info, int n)
 {
     for(int i = 0; i<n; ++i)
         for(int j = i; j<n; ++j)
@@ -31,7 +31,7 @@ void SortByDate(struct sensor* info, int n)
                   changeIJ(info, i, j);
 }
 
-void AddRecord(struct sensor* info, int number,
+void AddRecord(struct sensor *info, int number,
     uint16_t year, uint8_t month, uint8_t day, uint8_t hours, uint8_t minutes, int8_t temperature)
 {
     info[number].year = year;
@@ -42,7 +42,7 @@ void AddRecord(struct sensor* info, int number,
     info[number].temperature = temperature;
 }
 
-int AddInfo(struct sensor* info)
+int AddInfo(struct sensor *info)
 {
     int counter = 0;
     AddRecord(info, counter++, 2022, 1, 1, 10, 00, 3);
@@ -53,7 +53,7 @@ int AddInfo(struct sensor* info)
     return counter;
 }
 
-void print(struct sensor* info,int number)
+void print(struct sensor *info,int number)
 {
     printf("===================================\n");
     for(int i=0;i<number;i++)
@@ -67,46 +67,46 @@ void print(struct sensor* info,int number)
         );
 }
 
-void save_bin(struct sensor* info,int number)
+void save_bin(struct sensor *info, int number)
 {
     FILE* f = fopen("sensor.bin", "wb");
     fwrite(info, number*sizeof(struct sensor), 1, f);
     fclose(f);
 }
 
-void load_bin(struct sensor* info,int number)
+void load_bin(struct sensor *info, int number)
 {
     FILE* f = fopen("sensor.bin", "rb");
     fread(info, number*sizeof(struct sensor), 1, f);
     fclose(f);
 }
 
-void average_monthly_temp(struct sensor* info, int n)
+void average_monthly_temp(struct sensor *info, int n)
 {
     printf("\n\naverage_monthly_temp\n");
 }
 
-void min_temp_this_month(struct sensor* info, int n)
+void min_temp_this_month(struct sensor *info, int n)
 {
     printf("min_temp_this_month\n");
 }
 
-void max_temp_this_month(struct sensor* info, int n)
+void max_temp_this_month(struct sensor *info, int n)
 {
     printf("max_temp_this_month\n");
 }
 
-void average_annual_temp(struct sensor* info, int n)
+void average_annual_temp(struct sensor *info, int n)
 {
     printf("average_annual_temp\n");
 }
 
-void min_annual_temp(struct sensor* info, int n)
+void min_annual_temp(struct sensor *info, int n)
 {
     printf("min_annual_temp\n");
 }
 
-void max_annual_temp(struct sensor* info, int n)
+void max_annual_temp(struct sensor *info, int n)
 {
     printf("max_annual_temp\n");
 }
