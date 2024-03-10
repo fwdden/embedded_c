@@ -1,0 +1,32 @@
+===================================
+2022-01-01-10-00 temperature =  3
+2023-02-01-11-39 temperature = -8
+2022-01-07-18-29 temperature = 16
+2022-09-16-14-21 temperature =  1
+2022-09-16-14-19 temperature =  1
+
+Sort by t
+===================================
+2023-02-01-11-39 temperature = -8
+2022-09-16-14-19 temperature =  1
+2022-09-16-14-21 temperature =  1
+2022-01-01-10-00 temperature =  3
+2022-01-07-18-29 temperature = 16
+
+Sort by date
+===================================
+2022-01-01-10-00 temperature =  3
+2022-01-07-18-29 temperature = 16
+2022-09-16-14-19 temperature =  1
+2022-09-16-14-21 temperature =  1
+2023-02-01-11-39 temperature = -8
+
+Func prototypes :
+
+
+average_monthly_temp
+min_temp_this_month
+max_temp_this_month
+average_annual_temp
+min_annual_temp
+max_annual_temp
